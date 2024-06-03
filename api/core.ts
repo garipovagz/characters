@@ -25,17 +25,19 @@ export interface IData {
   }[]
 }
 
-export const useGetData = () => {
+export const useGetData = (params: { page: number }) => {
   const query = useQuery({
-    queryKey: ['characters'],
+    queryKey: ['characters', params],
     queryFn: async () => {
-      return await fetch(BASE_URL).then((response) => response.json())
+      return await fetch(BASE_URL + '/?page=' + params.page).then((response) =>
+        response.json()
+      )
     },
   })
   return {
     ...query,
     characters: computed(() => {
-      const data = query.data.value as IData
+      const data = unref(query.data) as IData
       return data?.results?.map((item) => {
         return {
           id: item.id,
@@ -47,6 +49,10 @@ export const useGetData = () => {
           firstEpisode: item.episode[0],
         }
       })
+    }),
+    total: computed(() => {
+      const data = unref(query.data) as IData
+      return data?.info?.count ?? 0
     }),
   }
 }
