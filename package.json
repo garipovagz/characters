@@ -13,19 +13,22 @@
     "@nuxtjs/tailwindcss": "^6.12.0",
     "@tanstack/vue-query": "^5.37.1",
     "@vee-validate/nuxt": "^4.13.0",
+    "@vee-validate/zod": "^4.11.3",
+    "@zodios/core": "^10.9.6",
+    "@zodios/plugins": "^10.6.0",
     "axios": "^1.7.2",
     "nuxt": "^3.11.2",
     "vue": "^3.4.27",
     "vue-awesome-paginate": "^1.1.46",
     "vue-router": "^4.3.2",
-    "zod": "^3.23.8",
-    "@zodios/core": "^10.9.6",
-    "@zodios/plugins": "^10.6.0",
-    "@vee-validate/zod": "^4.11.3"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@vueuse/core": "^10.3.0",
+    "@vueuse/nuxt": "^10.3.0",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
+    "sass": "^1.77.4",
     "typescript": "^5.4.5",
     "vue-tsc": "^2.0.19"
   }

@@ -33,6 +33,25 @@ const onSubmit = handleSubmit(async (values) => {
   params.value.status = values.status ?? ''
 })
 
+const selectOptions = [
+  {
+    title: 'All',
+    value: 'all',
+  },
+  {
+    title: 'Alive',
+    value: 'alive',
+  },
+  {
+    title: 'Dead',
+    value: 'dead',
+  },
+  {
+    title: 'Unknown',
+    value: 'unknown',
+  },
+]
+
 const { characters, isPending, total } = useGetData(getData)
 </script>
 
@@ -41,6 +60,7 @@ const { characters, isPending, total } = useGetData(getData)
     <Pagination v-model="currentPage" :total-items="total" />
     <form @submit="onSubmit">
       <Input name="species" placeholder="Enter" />
+      <Select :options="selectOptions" name="status" placeholder="Choose" />
       <button>Search</button>
     </form>
 

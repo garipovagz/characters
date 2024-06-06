@@ -68,7 +68,7 @@ export const useGetData = (
   }
 }
 
-export const useGetFirstSeenin = (url) => {
+export const useGetFirstSeenIn = (url) => {
   const query = useQuery({
     queryKey: ['location', url],
     queryFn: async () => {

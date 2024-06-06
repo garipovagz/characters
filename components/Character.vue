@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useGetFirstSeenIn } from '~/api/core'
 export interface ICharacter {
   id: number
   name: string
@@ -10,6 +11,7 @@ export interface ICharacter {
 }
 
 const props = defineProps<ICharacter>()
+const { data, episodeName } = useGetFirstSeenIn(props.firstEpisode)
 </script>
 
 <template>
@@ -26,7 +28,7 @@ const props = defineProps<ICharacter>()
       </div>
       <div>
         <p>First seen in:</p>
-        <!-- <p>{{ location2 }}</p> -->
+        <p>{{ episodeName }}</p>
       </div>
     </div>
   </div>
