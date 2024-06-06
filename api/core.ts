@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/vue-query'
+import { object } from 'zod'
 
 export const BASE_URL = 'https://rickandmortyapi.com/api/character'
 
@@ -25,11 +26,21 @@ export interface IData {
   }[]
 }
 
-export const useGetData = (params: { page: number }) => {
+export const useGetData = (
+  params: MaybeRef<{ status?: string; species?: string; page: number }>
+) => {
   const query = useQuery({
     queryKey: ['characters', params],
     queryFn: async () => {
-      return await fetch(BASE_URL + '/?page=' + params.page).then((response) =>
+      const queryParamsArray = computed(() =>
+        Object.entries(unref(params)).map((item) => {
+          return `${item[0]}=${item[1] ?? ''}`
+        })
+      )
+
+      //make query params string
+      const queryParams = `/?${unref(queryParamsArray).join('&')}`
+      return await fetch(BASE_URL + queryParams).then((response) =>
         response.json()
       )
     },
@@ -53,6 +64,22 @@ export const useGetData = (params: { page: number }) => {
     total: computed(() => {
       const data = unref(query.data) as IData
       return data?.info?.count ?? 0
+    }),
+  }
+}
+
+export const useGetFirstSeenin = (url) => {
+  const query = useQuery({
+    queryKey: ['location', url],
+    queryFn: async () => {
+      return await fetch(url).then((response) => response.json())
+    },
+  })
+  return {
+    ...query,
+    episodeName: computed(() => {
+      const data = unref(query.data)
+      return data?.name
     }),
   }
 }
