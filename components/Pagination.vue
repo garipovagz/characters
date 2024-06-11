@@ -19,32 +19,61 @@ const value = computed({
     :items-per-page="20"
     :max-pages-shown="3"
     v-model="value"
-  />
+    paginate-buttons-class="btn"
+    active-page-class="btn-active"
+  >
+    <template #prev-button>
+      <div
+        class="flex items-center justify-center w-12 cursor-pointer bg-gray-900 h-12 rounded-md"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="white"
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          class="rotate-180"
+        >
+          <path d="M8.122 24l-4.122-4 8-8-8-8 4.122-4 11.878 12z" />
+        </svg>
+      </div>
+    </template>
+    <template #next-button>
+      <div
+        class="flex items-center justify-center w-12 cursor-pointer bg-gray-900 h-12 rounded-md"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="white"
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+        >
+          <path d="M8.122 24l-4.122-4 8-8-8-8 4.122-4 11.878 12z" />
+        </svg>
+      </div>
+    </template>
+  </vue-awesome-paginate>
 </template>
 
-<style>
+<style lang="scss">
 .pagination-container {
   display: flex;
+  align-items: center;
   column-gap: 10px;
 }
-.paginate-buttons {
-  height: 40px;
-  width: 40px;
-  border-radius: 20px;
+li {
   cursor: pointer;
-  background-color: rgb(242, 242, 242);
-  border: 1px solid rgb(217, 217, 217);
+}
+.btn {
   color: black;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 6px;
+  padding: 8px;
 }
-.paginate-buttons:hover {
-  background-color: #d8d8d8;
-}
-.active-page {
-  background-color: #3498db;
-  border: 1px solid #3498db;
-  color: white;
-}
-.active-page:hover {
-  background-color: #2988c8;
+.btn-active {
+  background: rgb(156 163 175);
 }
 </style>

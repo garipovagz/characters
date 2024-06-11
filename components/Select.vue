@@ -36,16 +36,16 @@ onClickOutside(selector, () => (opened.value = false))
     class="text-normal relative h-12 w-full cursor-pointer transition-all"
   >
     <div
-      class="text-normal absolute box-border flex w-full flex-col flex-nowrap rounded-lg border border-blue-400 text-blue-400"
+      class="text-normal absolute box-border flex w-full flex-col flex-nowrap rounded-lg border border-gray-400"
       :class="{
-        'z-10 bg-blue-400 !text-white': opened,
+        'z-10 bg-gray-400 !text-white': opened,
       }"
     >
       <span
         class="flex h-12 w-auto flex-nowrap items-center justify-between gap-4 px-4 transition-all"
         @click="opened = !opened"
       >
-        <p :class="{ 'text-blue-400': selectedTitle === props.placeholder }">
+        <p :class="{ 'text-black': selectedTitle === props.placeholder }">
           {{ selectedTitle }}
         </p>
       </span>
