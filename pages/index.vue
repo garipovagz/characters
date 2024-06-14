@@ -61,7 +61,7 @@ const { characters, isPending, total } = useGetData(getData)
   <div class="w-full flex flex-col gap-5">
     <Pagination v-model="currentPage" :total-items="total" class="m-auto" />
     <form @submit="onSubmit" class="flex gap-6">
-      <Input name="species" placeholder="Enter" />
+      <Input name="species" placeholder="Enter specie" />
       <Select :options="selectOptions" name="status" placeholder="Choose" />
       <button class="rounded-md bg-gray-900 text-white w-full max-w-[300px]">
         Search
