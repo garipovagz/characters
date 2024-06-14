@@ -17,7 +17,7 @@ const value = computed({
   <vue-awesome-paginate
     :total-items="props.totalItems"
     :items-per-page="20"
-    :max-pages-shown="5"
+    :max-pages-shown="3"
     v-model="value"
     paginate-buttons-class="btn"
     active-page-class="btn-active"
