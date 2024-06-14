@@ -26,7 +26,7 @@ const color = () => {
     <img
       :src="props.imageUrl"
       :alt="props.name"
-      class="w-full h-[400px] object-cover xl:h-full xl:max-w-[200px]"
+      class="w-full h-[400px] object-cover xl:h-full xl:max-w-[300px]"
     />
     <div class="flex flex-col gap-4 lg:gap-5 p-4 w-full">
       <p class="text-3xl font-bold text-white">{{ props.name }}</p>
@@ -36,17 +36,13 @@ const color = () => {
         </svg>
         <p class="inline text-xl">{{ props.status }} - {{ props.species }}</p>
       </div>
-      <div
-        class="text-2xl flex items-center justify-between lg:flex-col lg:gap-2 lg:items-start"
-      >
+      <div class="text-2xl flex flex-col">
         <p class="text-xl text-gray-400">Last known location:</p>
         <p class="hover:text-orange-400 text-white">
           {{ props.location }}
         </p>
       </div>
-      <div
-        class="text-2xl flex items-center justify-between lg:flex-col lg:gap-2 lg:items-start"
-      >
+      <div class="text-2xl flex flex-col">
         <p class="text-xl text-gray-400">First seen in:</p>
         <p class="hover:text-orange-400 text-white">
           {{ episodeName }}

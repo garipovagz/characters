@@ -8,6 +8,8 @@ const params = ref({
   status: '',
 })
 
+watch(params.value, () => (currentPage.value = 1))
+
 const getData = computed(() => ({
   page: unref(currentPage),
   ...unref(params),
@@ -57,7 +59,7 @@ const { characters, isPending, total } = useGetData(getData)
 
 <template>
   <div class="w-full flex flex-col gap-5">
-    <Pagination v-model="currentPage" :total-items="total" />
+    <Pagination v-model="currentPage" :total-items="total" class="m-auto" />
     <form @submit="onSubmit" class="flex gap-6">
       <Input name="species" placeholder="Enter" />
       <Select :options="selectOptions" name="status" placeholder="Choose" />
@@ -84,7 +86,7 @@ const { characters, isPending, total } = useGetData(getData)
     </div>
     <div
       v-else
-      class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full bg-gray-900 pt-14"
+      class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full bg-gray-900 p-14"
     >
       <Character v-for="item in characters" :key="item.id" v-bind="item" />
     </div>
