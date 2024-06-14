@@ -86,7 +86,7 @@ const { characters, isPending, total } = useGetData(getData)
     </div>
     <div
       v-else
-      class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full bg-gray-900 p-14"
+      class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full bg-gray-900 xl:p-14 p-5"
     >
       <Character v-for="item in characters" :key="item.id" v-bind="item" />
     </div>
