@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "nuxt generate && gh-pages --dotfiles -d .output/public"
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.12.0",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@vueuse/core": "^10.3.0",
     "@vueuse/nuxt": "^10.3.0",
+    "gh-pages": "^6.1.1",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "sass": "^1.77.4",
